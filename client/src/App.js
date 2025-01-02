@@ -1,55 +1,30 @@
 import './App.css';
+import Post from "./Post";
+import Header from "./Header";
+import {Route, Routes} from "react-router-dom";
+import Layout from "./Layout";
+import IndexPage from "./pages/IndexPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import {UserContextProvider} from "./UserContext";
+import CreatePost from "./pages/CreatePost";
+import PostPage from "./pages/PostPage";
+import EditPost from "./pages/EditPost";
 
 function App() {
   return (
-    <main>
-      <header>
-        <a href="" className="logo">MyBlog</a>
-        <nav> 
-          <a href="">Login</a>
-          <a href="">Register</a>
-        </nav>
-      </header>
-      <div className="post">
-        <div className="image">
-          <img src="https://www.wscubetech.com/blog/wp-content/uploads/2024/04/generative-ai.webp" alt="" />
-        </div>
-        <div className="texts">
-          <h2>Generative AI</h2>
-          <p className="info">
-            <a className="author">Naoufel Boukarma</a>
-            <time>24.12.2024 00:33</time>
-          </p>
-          <p className="summary">You might not recognize Generative AI by name, but many of you might use it daily. Almost every industry is relying on it to generate compelling and informational content. It uses artificial intelligence to create fresh content using given prompts and information. One famous example of generative AI is ChatGPT, a buzzword in the market that many aspirants are learning to gain better professional opportunities.</p>
-        </div>
-      </div>   
-      <div className="post">
-        <div className="image">
-          <img src="https://www.wscubetech.com/blog/wp-content/uploads/2024/04/generative-ai.webp" alt="" />
-        </div>
-        <div className="texts">
-          <h2>Generative AI</h2>
-          <p className="info">
-            <a className="author">Naoufel Boukarma</a>
-            <time>24.12.2024 00:33</time>
-          </p>
-          <p className="summary">You might not recognize Generative AI by name, but many of you might use it daily. Almost every industry is relying on it to generate compelling and informational content. It uses artificial intelligence to create fresh content using given prompts and information. One famous example of generative AI is ChatGPT, a buzzword in the market that many aspirants are learning to gain better professional opportunities.</p>
-        </div>
-      </div>
-      <div className="post">
-        <div className="image"> 
-          <img src="https://www.wscubetech.com/blog/wp-content/uploads/2024/04/generative-ai.webp" alt="" />
-        </div>
-        <div className="texts">
-          <h2>Generative AI</h2>
-          <p className="info">
-            <a className="author">Naoufel Boukarma</a>
-            <time>24.12.2024 00:33</time>
-          </p>
-          <p className="summary">You might not recognize Generative AI by name, but many of you might use it daily. Almost every industry is relying on it to generate compelling and informational content. It uses artificial intelligence to create fresh content using given prompts and information. One famous example of generative AI is ChatGPT, a buzzword in the market that many aspirants are learning to gain better professional opportunities.</p>
-        </div>
-      </div>
-    </main>
+    <UserContextProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<IndexPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/create" element={<CreatePost />} />
+          <Route path="/post/:id" element={<PostPage />} />
+          <Route path="/edit/:id" element={<EditPost />} />
+        </Route>
+      </Routes>
+    </UserContextProvider>
   );
 }
 
