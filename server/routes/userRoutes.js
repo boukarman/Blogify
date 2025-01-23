@@ -7,7 +7,7 @@ const {
 	changeAvatar,
 	editUser,
 	getAuthors
-} = require('../controllers/userContollers');
+} = require('../controllers/userControllers');
 const router = Router();
 // const { User } = require('../models/userModel');
 // const bcrypt = require('bcrypt');
