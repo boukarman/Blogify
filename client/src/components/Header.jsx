@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Logo from "/images/logoipsum-311.svg";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { useEffect, useState, useContext } from "react";

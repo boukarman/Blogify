@@ -1,6 +1,5 @@
 import { Link, useParams } from "react-router-dom"
 import PostAuthor from "../components/PostAuthor"
-import Thumbnail1 from '/images/blog1.jpg'
 import { useEffect, useState, useContext } from "react"
 import axios from "axios"
 import Loader from "../components/Loader"

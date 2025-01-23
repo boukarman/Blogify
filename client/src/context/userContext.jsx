@@ -1,0 +1,18 @@
+import { createContext, useState, useEffect, useInsertionEffect } from 'react';
+
+export const UserContext = createContext();
+
+const UserProvider = ({ children })=>{
+	const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')));
+
+	useInsertionEffect(()=>{
+		localStorage.setItem('user', JSON.stringify(currentUser))
+	}, [currentUser])
+	return (
+		<UserContext.Provider value={{currentUser, setCurrentUser}}>
+		{children}
+		</UserContext.Provider>
+	)
+}
+
+export default UserProvider;
